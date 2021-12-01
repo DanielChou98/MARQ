@@ -62,7 +62,7 @@ export default class TelaSintomas extends Component {
     //console.log('element long: ' + lng1)
     //console.log('element Lat2: ' + lat2)
     //console.log('element long2: ' + lng2)
-    var urlToFetchDistance = 'https://maps.googleapis.com/maps/api/distancematrix/json?&origins=' + lat1 + '%2C' + lng1 + '&destinations=' + lat2 + '%2C' + lng2 + '&key=' + "AIzaSyD5Kri8lQPXjMQCMM4022IwziOH5ph0hvk";
+    var urlToFetchDistance = 'https://maps.googleapis.com/maps/api/distancematrix/json?&origins=' + lat1 + '%2C' + lng1 + '&destinations=' + lat2 + '%2C' + lng2 + '&key=' + "SUA_API_GOOGLE";
     await fetch(urlToFetchDistance)
       .then(res => {
         return res.json()
