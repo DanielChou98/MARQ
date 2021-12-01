@@ -131,7 +131,7 @@ export default class App extends Component {
   }
 
   render() {
-    const GOOGLE_MAPS_APIKEY = 'AIzaSyD5Kri8lQPXjMQCMM4022IwziOH5ph0hvk';
+    const GOOGLE_MAPS_APIKEY = 'SUA_API_GOOGLE';
     const region = this.state.region;
     const origin = { latitude: -23.7113111, longitude: -46.5884565 };
     const destination = { latitude: parseFloat(this.state.Hospital.latitude), longitude: parseFloat(this.state.Hospital.longitude), };
