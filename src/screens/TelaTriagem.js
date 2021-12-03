@@ -17,11 +17,14 @@ export default class TelaTriagem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            qrValue: '',
+            qrValue: null,
             elmState: '',
-            consultorio1:'',
-            consultorio2:'',
-            elmState:'',
+            triagem1:'',
+            triagem2:'',
+            cpf:'',
+            nome:'',
+            nascimento:'',
+            
         };
         this.useEffect=this.useEffect.bind(this)
     }
@@ -31,11 +34,12 @@ export default class TelaTriagem extends Component {
         var interval =setInterval(() => {
              new usuarios().getByEmail(this.context.Email).then((x) => {
                 //console.log('consultorio2: '+x.data().consultorio)
-                this.setState({ consultorio2: x.data().consultorio })
+                this.setState({ triagem2: x.data().sala_triagem })
+                
             });
             //console.log(`consultorio1`+this.state.consultorio1)
             //console.log('Teste: '+this.state.consultorio1 != this.state.consultorio2)
-            if (this.state.consultorio1 != this.state.consultorio2){
+            if (this.state.triagem1 != this.state.triagem2){
                 this.props.navigation.navigate('Consultorio');
             }
           }, 10000)
@@ -45,7 +49,9 @@ export default class TelaTriagem extends Component {
         //console.log('entrou useEffect')
         await new usuarios().getByEmail(this.context.Email).then((x) => {
             //console.log(x.data().cpf)
-            this.setState({ consultorio1: x.data().consultorio })
+            this.setState({ triagem1: x.data().sala_triagem })
+            this.setState({elmState:x.data().nome +"\n"+ x.data().cpf +"\n"+ x.data().nascimento})
+            //this.setState({cpf:x.data().cpf})
         });
     };
 
@@ -56,22 +62,25 @@ export default class TelaTriagem extends Component {
                     <View style={styles.containerQr}>
                         <QRCode
                             value={this.state.qrValue ? this.state.qrValue : 'NA'}
-                            size={250}
+                           //value={"https://firestore.googleapis.com/v1/projects/marq2-768c9/databases/(default)/documents/usuarios/" + String(this.state.cpf)}
+                            //value="dadsadsad"
+                           size={250}
                             color="black"
                             backgroundColor="white"
-                            logoSize={30}
-                            logoMargin={2}
-                            logoBorderRadius={15}
-                            logoBackgroundColor="yellow"
+                            //logo={require('../../assets/icon.png')}
+                            //logoSize={30}
+                            //logoMargin={2}
+                            //logoBorderRadius={15}
+                            //logoBackgroundColor="yellow"
                         />
                     </View>
                     <View style={styles.margem}>
-                        <Text style={styles.loremIpsum}>Dirija-se à sala 05 e mostre o QR Code quando chegar!</Text>
+                        <Text style={styles.loremIpsum}>Dirija-se à sala {this.state.triagem1} e mostre o QR Code quando chegar!</Text>
                     </View>
                     <View style={styles.margem}>
                         <CupertinoButtonInfo
                             style={styles.cupertinoButtonInfo}
-                            onPress={() => this.setState({ qrValue: elmState })}
+                            onPress={() => this.setState({ qrValue: this.state.elmState } )}
                             title="Gerar QR Code"
                         />
                     </View>
