@@ -204,6 +204,8 @@ export function addUsu(usuario){
        assinatura:usuario.assinatura,
        virtual:true,
        documento:usuario.documento,
+       consultorio:usuario.consultorio,
+       sala_triagem:usuario.sala_triagem,
        })
 
       
