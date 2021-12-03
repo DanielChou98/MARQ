@@ -85,8 +85,8 @@ export default class TelaCadastro extends Component {
         imagem: " ",
         assinatura: " ",
         documento: this.props.route.params.imagem,
-        sala_consulta:'',
-        terminou:'',
+        consultorio:'',
+        sala_triagem:'',
       });
       this.props.navigation.navigate('Convenio');
     }
