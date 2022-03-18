@@ -2,7 +2,7 @@
 
 Código utilizado para elaboração do aplicativo de filas virtuais para hospitais, MARQ.
 
-Através de linguagens de programção como <b>React Native</b>, <b>JavaScript</b>, <b>CSS</b>. Bano de dados <b>FireBase</b> e <b>API´s</b> para uso de localização
+Através de linguagens de programção como <b>React Native</b>, <b>JavaScript</b>, <b>CSS</b>. Banco de dados <b>FireBase</b> e <b>API´s</b> para uso de localização
 
 Para executar o projeto, clone o repositorio em seu computador e dentro da pasta, no prompt de comando execute o comando: "expo init NOMEDOPROJETO" 
 <h2> Resumo </h2>
